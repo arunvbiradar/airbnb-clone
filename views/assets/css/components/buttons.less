@@ -1,0 +1,132 @@
+.btn {
+    size: @size-md;
+    cursor: pointer;
+    border: 1px solid;
+    padding: .6rem 1rem;
+    color: @black-color;
+    line-height: @size-md;
+    font-weight: @wt-medium;
+    border-radius: @radius-df;
+    background-color: transparent;
+    transition: all .3s ease-in-out;
+    &:hover {
+        background-color: @grey-light;
+    }
+
+    + .btn {
+        margin-left: .5rem;
+    }
+
+    &.btn-default {
+        border-color: @grey-light;
+        background-color: @grey-lighter;
+        &:hover {
+            border-color: @grey-color;
+            background-color: @grey-light;
+        }
+    }
+
+    &.btn-link {
+        color: initial;
+        border-color: transparent;
+        background-color: transparent;
+        &:hover {
+            color: initial;
+        }
+    }
+
+    &.btn-primary {
+        color: #fff;
+        border-color: @primary-color;
+        background-color: @primary-color;
+        &:hover {
+            color: @primary-color;
+            background-color: transparent;
+        }
+
+        &.btn-outline {
+            color: @primary-color;
+            background-color: transparent;
+            &:hover {
+                color: #fff;
+                border-color: @primary-color;
+                background-color: @primary-color;
+            }
+        }
+
+        &.btn-link {
+            color: @primary-color;
+            border-color: transparent;
+            background-color: transparent;
+            &:hover {
+                background-color: @grey-lighter;
+            }
+        }
+    }
+
+    &.btn-secondary {
+        color: #fff;
+        border-color: @secondary-color;
+        background-color: @secondary-color;
+        &:hover {
+            color: @secondary-color;
+            background-color: transparent;
+        }
+
+        &.btn-outline {
+            color: @secondary-color;
+            background-color: transparent;
+            &:hover {
+                color: #fff;
+                border-color: @secondary-color;
+                background-color: @secondary-color;
+            }
+        }
+
+        &.btn-link {
+            color: @secondary-color;
+            border-color: transparent;
+            background-color: transparent;
+            &:hover {
+                background-color: @grey-lighter;
+            }
+        }
+    }
+
+    &.btn-tertiary {
+        color: #fff;
+        border-color: @tertiary-color;
+        background-color: @tertiary-color;
+        &:hover {
+            color: @tertiary-color;
+            background-color: transparent;
+        }
+
+        &.btn-outline {
+            color: @primary-color;
+            background-color: transparent;
+            &:hover {
+                color: #fff;
+                border-color: @primary-color;
+                background-color: @primary-color;
+            }
+        }
+
+        &.btn-link {
+            color: @tertiary-color;
+            border-color: transparent;
+            background-color: transparent;
+            &:hover {
+                background-color: @grey-lighter;
+            }
+        }
+    }
+
+    &:disabled {
+        opacity: 60%;
+        cursor: not-allowed;
+        &:hover {
+            background-color: initial;
+        }
+    }
+}

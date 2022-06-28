@@ -1,0 +1,13 @@
+.breadcrumb {
+    padding: .5rem 0;
+    font-size: .8rem;
+    color: @black-light;
+
+    li {
+        + li:before {
+            content: '/';
+            padding: 0 .5rem;
+            display: inline-block;
+        }
+    }
+}

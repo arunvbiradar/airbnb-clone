@@ -1,0 +1,35 @@
+body {
+    color: @black-color;
+}
+
+a {
+    color: @primary-color;
+    text-decoration: none;
+    &:hover {
+        color: @secondary-color;
+    }
+
+    &.neutral {        
+        color: @black-color;
+        &:hover {
+            color: @black-color;
+            text-decoration: underline;
+        }
+    }
+}
+
+.text-primary {
+    color: @primary-color;
+}
+.text-secondary {
+    color: @secondary-color;
+}
+.text-tertiary {
+    color: @tertiary-color;
+}
+.text-neutral {
+    color: @black-color;
+}
+.text-muted {
+    color: @grey-color;
+}
