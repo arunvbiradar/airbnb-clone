@@ -92,6 +92,10 @@ strong,
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     .text-bold;
+
+    &.divider {
+        margin-bottom: 1rem;
+    }
 }
 
 
@@ -143,4 +147,28 @@ h1, h2, h3, h4, h5, h6,
     line-height: @size-4xl;
     font-size: @size-4xl;
     font-weight: @wt-light;
+}
+
+.divider {
+    &:after {
+        content: '';
+        display: block;
+        margin: .25rem 0 .25rem;
+        border-bottom: 1px solid @grey-light;
+    }
+}
+
+.mt {
+    &-df {
+        margin-top: @size-df;
+    }
+    &-md {
+        margin-top: @size-md;
+    }
+    &-lg {
+        margin-top: @size-lg;
+    }
+    &-xl {
+        margin-top: @size-xl;
+    }
 }

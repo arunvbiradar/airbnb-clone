@@ -1,41 +1,223 @@
 <%- include('./../partials/header.ejs') %>
 
 <!-- form -->
-<form action="">
+<form action="create-room" method="post">
+  <h3 class="divider">Room details</h3>
   <div class="row">
-    <div class="form-control col">
-      <label for="">Enter name</label>
-      <input type="text" name="" id="" class="text-field" placeholder="This is a name field">
+    <div class="form-control col required">
+      <label for="">Enter room name</label>
+      <input type="text" name="roomName" id="roomName" class="text-field" placeholder="Enter room name">
     </div>
-    <div class="form-control col">
-      <input type="email" name="" id="" class="text-field">
+    <div class="form-control col required">
+      <label for="">Enter title</label>
+      <input type="text" name="roomTitle" id="roomTitle" class="text-field" placeholder="Enter room title">
     </div>
   </div>
   <div class="row">
-    <div class="form-control col col-inline">
-      <label for="">Enter name</label>
-      <input type="text" name="" id="" class="text-field" placeholder="This is a name field">
+    <div class="form-control col required">
+      <label for="">Upload Image</label>
+      <input type="file" name="images" id="images" class="text-field" placeholder="Upload images">
     </div>
-    <div class="form-control col col-inline">
-      <input type="email" name="" id="" class="text-field">
+    <div class="col">
+      <div class="row">
+        <div class="form-control col required">
+          <label for="">No. of guests</label>
+          <input type="text" name="roomNoOfGuest" id="roomNoOfGuest" class="text-field" placeholder="Guests">
+        </div>
+        <div class="form-control col required">
+          <label for="">No. of bedrooms</label>
+          <input type="text" name="roomNoOfBedrooms" id="roomNoOfBedrooms" class="text-field" placeholder="Bedrooms">
+        </div>
+        <div class="form-control col required">
+          <label for="">No. of bathrooms</label>
+          <input type="text" name="roomNoOfBathrooms" id="roomNoOfBathrooms" class="text-field" placeholder="Bathrooms">
+        </div>
+      </div>
     </div>
   </div>
-  <div class="form-control">
-    <select name="" id="" class="text-field">
-      <option value="">1</option>
-      <option value="">2</option>
-      <option value="">3</option>
-    </select>
+  <div class="row">
+    <div class="form-control col required">
+      <label for="">Enter room price/night</label>
+      <input type="text" name="roomPrice" id="roomPrice" class="text-field" placeholder="Enter room price/night">
+    </div>
+    <div class="form-control col required">
+      <label for="">Enter service fee</label>
+      <input type="text" name="serviceFee" id="serviceFee" class="text-field" placeholder="Enter service fee">
+    </div>
   </div>
-  <button class="btn btn-primary">Primary</button>
-  <button class="btn btn-secondary">Secondary</button>
-  <button class="btn btn-tertiary">Tertiary</button>
-  <button class="btn btn-default">Default</button>
-  <button class="btn btn-link">Link</button>
-  <button class="btn btn-link btn-primary">Link</button>
-  <button class="btn btn-outline">Outline</button>
-  <button class="btn btn-outline btn-primary">Outline</button>
-  <button class="btn" disabled>Disabled</button>
+  <div class="row">
+    <div class="form-control col required">
+      <label for="">Enter check in</label>
+      <input type="text" name="checkIn" id="checkIn" class="text-field" placeholder="Enter check in">
+    </div>
+    <div class="form-control col required">
+      <label for="">Enter check out</label>
+      <input type="text" name="checkOut" id="checkOut" class="text-field" placeholder="Enter check out">
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-control col required">
+      <label for="">Enter description</label>
+      <textarea name="description" id="description" class="text-field" placeholder="Enter description"></textarea>
+    </div>
+  </div>
+  <h3 class="divider mt-md">Amenities</h3>
+  <div class="row">
+    <div class="form-control col col-inline required">
+      <label for="">Select amenities</label>
+      <div class="field-group">
+        <div class="checkbox">
+          <label for="">
+            <input type="checkbox" name="amenities">
+            Room
+          </label>
+        </div>
+        <div class="checkbox">
+          <label for="">
+            <input type="checkbox" name="amenities">
+            Room
+          </label>
+        </div>
+        <div class="checkbox">
+          <label for="">
+            <input type="checkbox" name="amenities">
+            Room
+          </label>
+        </div>
+        <div class="checkbox">
+          <label for="">
+            <input type="checkbox" name="amenities">
+            Room
+          </label>
+        </div>
+        <div class="checkbox">
+          <label for="">
+            <input type="checkbox" name="amenities">
+            Room
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-control col col-inline required">
+      <label for="">&nbsp;</label>
+      <div class="checkbox">
+        <label for="">
+          <input type="checkbox" name="pets">
+          Pets allowed
+        </label>
+      </div>
+    </div>
+  </div>
+  <h3 class="divider mt-md">Address details</h3>
+  <div class="row">
+    <div class="form-control col required">
+      <label for="">Enter address</label>
+      <input type="text" name="address" id="address" class="text-field" placeholder="Enter address">
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-control col required">
+      <label for="">Select country</label>
+      <select name="country" id="country" class="text-field">
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+      </select>
+    </div>
+    <div class="form-control col required">
+      <label for="">Select state</label>
+      <select name="state" id="state" class="text-field">
+        <option value="">1</option>
+        <option value="">2</option>
+        <option value="">3</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-control col required">
+      <label for="">Select city</label>
+      <input type="text" name="city" id="city" class="text-field" placeholder="Enter city">
+    </div>
+    <div class="form-control col required">
+      <label for="">Enter pincode</label>
+      <input type="text" name="pincode" id="pincode" class="text-field" placeholder="Enter pincode">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col w-50">
+      <label for="" class="form-label">Enter location</label>
+      <div class="row">
+        <div class="form-control col required">
+          <input type="text" name="roomNoOfGuest" id="roomNoOfGuest" class="text-field" placeholder="Latitude">
+        </div>
+        <div class="form-control col required">
+          <input type="text" name="roomNoOfBedrooms" id="roomNoOfBedrooms" class="text-field" placeholder="Longititude">
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="divider mt-md">Rules</h3>
+  <div class="row">
+    <div class="col">
+      <label for="" class="form-label">Enter rules</label>
+      <div class="row">
+        <div class="form-control col required">
+          <input type="text" name="checkInBtw" id="checkInBtw" class="text-field" placeholder="CheckIn between">
+        </div>
+        <div class="form-control col required">
+          <input type="text" name="suitableFor" id="suitableFor" class="text-field" placeholder="Suiteable for">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="" class="form-label">Enter additional rules</label>
+      <div class="row">
+        <div class="form-control col required">
+          <input type="text" name="rule1" id="rule1" class="text-field" placeholder="Rule 1">
+        </div>
+        <div class="form-control col required">
+          <input type="text" name="rule2" id="rule2" class="text-field" placeholder="Rule 2">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="row">
+        <div class="form-control col required">
+          <input type="text" name="rule3" id="rule3" class="text-field" placeholder="Rule 3">
+        </div>
+        <div class="form-control col required">
+          <input type="text" name="rule4" id="rule4" class="text-field" placeholder="Rule 4">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-inline">
+      <div class="form-control required">
+        <div class="checkbox">
+          <label for="" class="form-label">
+            <input type="checkbox" name="smoking" id="smoking"> Smoking
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="col col-inline">
+      <div class="form-control required">
+        <div class="checkbox">
+          <label for="" class="form-label">
+            <input type="checkbox" name="pets" id="pets"> Pets
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-control align-content-right">
+    <button class="btn btn-primary">Create Room</button>
+  </div>
 </form>
 
 <%- include('./../partials/footer.ejs') %>

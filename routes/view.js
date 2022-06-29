@@ -1,5 +1,7 @@
 import express from "express";
 const router = express.Router();
+import { getAmenities, createAmenity, deleteAmenity } from "./../controllers/amenities.js";
+import { getCreateRoom, createRoom } from "./../controllers/viewRooms.js";
 
 router.get("/", (req, res) => {
   res.render("index", {
@@ -8,11 +10,12 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/create-room", (req, res) => {
-  res.render("./pages/createRoom", {
-    pageTitle: "Create Room",
-    breadCrumb: "Create Room",
-  });
-});
+// rooms
+router.route("/create-room").get(getCreateRoom).post(createRoom);
+
+// amenities
+router.route('/amenities').get(getAmenities).post(createAmenity);
+router.route('/amenities/:id').post(deleteAmenity);
+
 
 export default router;

@@ -18,7 +18,9 @@
         <nav>
           <ul class="list list-inline">
             <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/dashboard/rooms">Rooms</a></li>
             <li><a href="/dashboard/create-room">Create Room</a></li>
+            <li><a href="/dashboard/amenities">Amenities</a></li>
           </ul>
         </nav>
         <div class="content">
@@ -32,3 +34,14 @@
 
       <!-- title -->
       <h2 class="page-title"><%= breadCrumb %></h2>
+
+      <!-- flash messages -->
+      <% if(error.status){ %>
+        <div class="alert alert-primary">
+          <%= error.message._message %>
+        </div>
+      <% } else if(error.message?._message) { %>
+        <div class="alert alert-secondary">
+          <%= error.message?._message %>
+        </div>
+      <% } %>

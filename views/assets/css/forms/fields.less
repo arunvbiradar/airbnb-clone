@@ -5,6 +5,7 @@
     color: @grey-color;
     font-size: @size-df;
     padding: .6rem 1rem;
+    font-family: @font-family;
     border-radius: @radius-df;
     border: 1px solid @grey-light;
 }
@@ -18,12 +19,53 @@ select {
     background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDMzMCAzMzAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDMzMCAzMzA7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGlkPSJYTUxJRF8yMjVfIiBkPSJNMzI1LjYwNyw3OS4zOTNjLTUuODU3LTUuODU3LTE1LjM1NS01Ljg1OC0yMS4yMTMsMC4wMDFsLTEzOS4zOSwxMzkuMzkzTDI1LjYwNyw3OS4zOTMNCgljLTUuODU3LTUuODU3LTE1LjM1NS01Ljg1OC0yMS4yMTMsMC4wMDFjLTUuODU4LDUuODU4LTUuODU4LDE1LjM1NSwwLDIxLjIxM2wxNTAuMDA0LDE1MGMyLjgxMywyLjgxMyw2LjYyOCw0LjM5MywxMC42MDYsNC4zOTMNCglzNy43OTQtMS41ODEsMTAuNjA2LTQuMzk0bDE0OS45OTYtMTUwQzMzMS40NjUsOTQuNzQ5LDMzMS40NjUsODUuMjUxLDMyNS42MDcsNzkuMzkzeiIvPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=");
 }
 
+.form-label {
+    font-size: @size-sm;
+    color: @black-darker;
+    font-weight: @wt-medium;
+}
+
 .form-control {
     margin-bottom: @size-md;
     
     label {
-        font-size: @size-sm;
-        color: @black-darker;
-        font-weight: @wt-medium;
+        .form-label;
+    }
+}
+
+.field-group {
+    display: flex;
+    >.checkbox, >.radio {
+        + .checkbox, + .radio {
+            margin-left: 1rem;
+        }
+    }
+}
+
+.checkbox, .radio {
+    label {
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+    }
+
+    input {
+        cursor: pointer;
+        width: @size-md;
+        height: @size-md;
+        margin-right: 0.5em;
+    }
+}
+
+// horizontal form
+.form-horizontal {
+    .form-control {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    label, .text-field {
+        margin-right: 1rem;
     }
 }

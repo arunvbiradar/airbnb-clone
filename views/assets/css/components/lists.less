@@ -2,11 +2,15 @@
     display: flex;
 }
 
+.list {
+    padding-left: 0;
+    list-style: none;
+    list-style-position: inside;
+}
+
 ul,
 ol {
     &.list-inline {
-        padding-left: 0;
-        list-style: none;
-        list-style-position: inside;
+        .list;
     }
 }

@@ -1,0 +1,27 @@
+<%- include('./../partials/header.ejs') %>
+
+<form action="" method="post" class="form-horizontal">
+    <div class="form-control col w-50 w-md-100 required">
+      <label for="">Enter amenity</label>
+      <input type="text" name="name" id="amenityName" class="text-field" placeholder="Enter amenity">
+      <input type="text" name="icon" id="amenityIcon" class="text-field" placeholder="Icon">
+      <button class="btn btn-primary">Create Amenity</button>
+    </div>
+</form>
+<div class="row">
+    <div class="col">
+        <ul class="list">
+            <% amenities.forEach(function(amenity) { %>
+                <li>
+                    <a href=""><%= amenity.name %></a>
+                    <form action="amenities/<%= amenity._id %>" method="post">
+                        <input type="hidden" name="deleteAmenity" value="amenity._id">
+                        <button type="submit" class="btn btn-link btn-primary">Delete</button>
+                    </form>
+                </li>
+             <% }); %>
+        </ul>
+    </div>
+</div>
+
+<%- include('./../partials/footer.ejs') %>
