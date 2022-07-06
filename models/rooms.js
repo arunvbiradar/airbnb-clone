@@ -16,6 +16,25 @@ const RoomSchema = new mongoose.Schema({
     type: String,
     required: [true, "Address is required"],
   },
+  address: {
+    type: String,
+    required: [true, "Address is required"],
+  },
+  country: {
+    ref: "Country",
+    required: true,
+    type: mongoose.Schema.ObjectId,
+  },
+  state: {
+    ref: "State",
+    required: true,
+    type: mongoose.Schema.ObjectId,
+  },
+  city: {
+    ref: "City",
+    required: true,
+    type: mongoose.Schema.ObjectId,
+  },
   pincode: {
     type: String,
     required: [true, "Pincode is required"],
@@ -61,7 +80,6 @@ const RoomSchema = new mongoose.Schema({
     trim: true,
   },
   amenites: [String],
-  
   location: {
     type: { type: String },
     coordinates: [],

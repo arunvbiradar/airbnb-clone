@@ -9,23 +9,23 @@
       <button class="btn btn-primary">Create Amenity</button>
     </div>
 </form>
-<% if(amenities.length > 0) { %>
+<% if(typeof amenities != 'undefined' && amenities.length > 0) { %>
     <h3 class="divider">All Ameneties</h3>
-<%}%>
-<div class="row">
-    <div class="col">
-        <ul class="list">
-            <% amenities.forEach(function(amenity) { %>
-                <li>
-                    <a href=""><%= amenity.name %></a>
-                    <form action="amenities/<%= amenity._id %>" method="post">
-                        <input type="hidden" name="deleteAmenity" value="amenity._id">
-                        <button type="submit" class="btn btn-link btn-primary">Delete</button>
-                    </form>
-                </li>
-             <% }); %>
-        </ul>
+    <div class="row">
+        <div class="col">
+            <ul class="list">
+                <% amenities.forEach(function(amenity) { %>
+                    <li>
+                        <a href=""><%= amenity.name %></a>
+                        <form action="amenities/<%= amenity._id %>" method="post">
+                            <input type="hidden" name="deleteAmenity" value="amenity._id">
+                            <button type="submit" class="btn btn-link btn-primary">Delete</button>
+                        </form>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
     </div>
-</div>
+<%}%>
 
 <%- include('./../partials/footer.ejs') %>

@@ -1,0 +1,102 @@
+<%- include('./../partials/header.ejs') %>
+
+<h3 class="divider">Create Country</h3>
+<form action="countries" method="post" class="form-horizontal">
+    <div class="form-control col w-50 w-md-100 required">
+      <label for="">Enter country</label>
+      <input type="text" name="name" id="countryName" class="text-field" placeholder="Enter country">
+      <input type="text" name="icon" id="countryIcon" class="text-field" placeholder="Icon">
+      <button class="btn btn-primary">Create country</button>
+    </div>
+</form>
+<form action="states" method="post" class="form-horizontal">
+    <div class="form-control col w-50 w-md-100 required">
+      <label for="">Enter state</label>
+      <input type="text" name="name" id="stateName" class="text-field" placeholder="Enter state">
+      <select name="country" id="stateCountry" class="text-field">
+            <option value="">Select country</option>
+            <% countries.forEach(function(country) { %>
+            <option value="<%= country._id %>"><%= country.name %></option>
+            <% }); %>
+      </select>
+      <input type="text" name="icon" id="stateIcon" class="text-field" placeholder="Icon">
+      <button class="btn btn-primary">Create state</button>
+    </div>
+</form>
+<form action="cities" method="post" class="form-horizontal">
+    <div class="form-control col w-50 w-md-100 required">
+      <label for="">Enter city</label>
+      <input type="text" name="name" id="cityName" class="text-field" placeholder="Enter city">
+      <select name="country" id="cityCountry" class="text-field">
+            <option value="">Select country</option>
+            <% countries.forEach(function(country) { %>
+            <option value="<%= country._id %>"><%= country.name %></option>
+            <% }); %>
+      </select>
+      <select name="state" id="cityState" class="text-field">
+            <option value="">Select state</option>
+            <% states.forEach(function(state) { %>
+            <option value="<%= state._id %>"><%= state.name %></option>
+            <% }); %>
+      </select>
+      <input type="text" name="icon" id="cityIcon" class="text-field" placeholder="Icon">
+      <button class="btn btn-primary">Create city</button>
+    </div>
+</form>
+
+<% if(typeof countries != 'undefined' && countries.length > 0) { %>
+    <h3 class="divider">All Countires</h3>
+    <div class="row">
+        <div class="col">
+            <ul class="list">
+                <% countries.forEach(function(country) { %>
+                    <li>
+                        <a href=""><%= country.name %></a>
+                        <form action="countries/<%= country._id %>" method="post">
+                            <input type="hidden" name="deleteCountry" value="country._id">
+                            <button type="submit" class="btn btn-link btn-primary">Delete</button>
+                        </form>
+                    </li>
+                 <% }); %>
+            </ul>
+        </div>
+    </div>
+<%}%>
+<% if(typeof states != 'undefined' && states.length > 0) { %>
+    <h3 class="divider">All States</h3>
+    <div class="row">
+        <div class="col">
+            <ul class="list">
+                <% states.forEach(function(state) { %>
+                    <li>
+                        <a href=""><%= state.name %></a>
+                        <form action="states/<%= state._id %>" method="post">
+                            <input type="hidden" name="deleteState" value="state._id">
+                            <button type="submit" class="btn btn-link btn-primary">Delete</button>
+                        </form>
+                    </li>
+                 <% }); %>
+            </ul>
+        </div>
+    </div>
+<%}%>
+<% if(typeof cities != 'undefined' && cities.length > 0) { %>
+    <h3 class="divider">All Cities</h3>
+    <div class="row">
+        <div class="col">
+            <ul class="list">
+                <% cities.forEach(function(city) { %>
+                    <li>
+                        <a href=""><%= city.name %></a>
+                        <form action="cities/<%= city._id %>" method="post">
+                            <input type="hidden" name="deleteCity" value="city._id">
+                            <button type="submit" class="btn btn-link btn-primary">Delete</button>
+                        </form>
+                    </li>
+                 <% }); %>
+            </ul>
+        </div>
+    </div>
+<%}%>
+
+<%- include('./../partials/footer.ejs') %>
