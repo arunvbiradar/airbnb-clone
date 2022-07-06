@@ -1,16 +1,19 @@
 import express from "express";
 const router = express.Router();
 import { getAmenities, createAmenity, deleteAmenity } from "./../controllers/amenities.js";
-import { getCreateRoom, createRoom } from "./../controllers/viewRooms.js";
+import { getCreateRoom, createRoom, getRooms, deleteRoom } from "./../controllers/viewRooms.js";
 
 router.get("/", (req, res) => {
   res.render("index", {
     pageTitle: "Dashboard",
     breadCrumb: "Dashboard",
+    error: {}
   });
 });
 
 // rooms
+router.route("/rooms").get(getRooms);
+router.route("/rooms/:id").post(deleteRoom);
 router.route("/create-room").get(getCreateRoom).post(createRoom);
 
 // amenities

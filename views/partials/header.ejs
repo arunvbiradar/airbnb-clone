@@ -36,12 +36,13 @@
       <h2 class="page-title"><%= breadCrumb %></h2>
 
       <!-- flash messages -->
-      <% if(error.status){ %>
+      
+      <% if(error && error.status){ %>
         <div class="alert alert-primary">
           <%= error.message._message %>
         </div>
-      <% } else if(error.message?._message) { %>
+      <% } else if(error && typeof error.message == 'string') { %>
         <div class="alert alert-secondary">
-          <%= error.message?._message %>
+          <%= error.message %>
         </div>
       <% } %>

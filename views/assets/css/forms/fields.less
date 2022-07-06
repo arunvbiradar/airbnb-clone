@@ -69,3 +69,23 @@ select {
         margin-right: 1rem;
     }
 }
+
+.invalid {
+    input, select {
+        border-color: @primary-color;
+    }
+}
+
+.error-text {
+    font-weight: 500;
+    font-size: @size-sm;
+    color: @primary-color;
+}
+
+.required {
+    label:after {
+        content: '*';
+        margin-left: 0.2rem;
+        display: inline-flex;
+    }
+}

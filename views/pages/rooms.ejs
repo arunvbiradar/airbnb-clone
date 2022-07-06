@@ -1,0 +1,19 @@
+<%- include('./../partials/header.ejs') %>
+
+<div class="row">
+    <div class="col">
+        <ul class="list">
+            <% rooms.forEach(function(room) { %>
+                <li>
+                    <a href=""><%= room.name %></a>
+                    <form action="rooms/<%= room._id %>" method="post">
+                        <input type="hidden" name="deleteRoom" value="room._id">
+                        <button type="submit" class="btn btn-link btn-primary">Delete</button>
+                    </form>
+                </li>
+             <% }); %>
+        </ul>
+    </div>
+</div>
+
+<%- include('./../partials/footer.ejs') %>

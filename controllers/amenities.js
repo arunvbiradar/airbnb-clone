@@ -7,6 +7,7 @@ export const getAmenities = async (req, res) => {
         pageTitle: "Amenities",
         breadCrumb: "Amenities",
         amenities,
+        error: {}
     });
   } catch (error) {
     res.status(500).json(error.message);

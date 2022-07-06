@@ -16,56 +16,35 @@ const RoomSchema = new mongoose.Schema({
     type: String,
     required: [true, "Address is required"],
   },
-  country: {
-    ref: "Country",
-    required: true,
-    type: mongoose.Schema.ObjectId,
-  },
-  state: {
-    ref: "State",
-    required: true,
-    type: mongoose.Schema.ObjectId,
-  },
-  city: {
-    ref: "City",
-    required: true,
-    type: mongoose.Schema.ObjectId,
+  pincode: {
+    type: String,
+    required: [true, "Pincode is required"],
   },
   imgUrl: {
     trim: true,
     type: [String],
-    default: "/uploads/default.jpg",
     required: [true, "Atleast one image is required"],
   },
   noOfGuests: {
-    default: 1,
     type: Number,
     required: [true, "Number of Guests is required"],
   },
   noOfBedrooms: {
-    default: 1,
     type: Number,
   },
   noOfBathrooms: {
-    default: 0,
     type: Number,
   },
-  host: {
-    ref: "Host",
-    required: true,
-    type: mongoose.Schema.ObjectId,
-  },
+  
   petsAllowed: {
     type: Boolean,
     default: false,
   },
   price: {
-    default: 0,
     type: Number,
     required: [true, "Price is required"],
   },
   serviceFee: {
-    default: 0,
     type: Number,
     required: [true, "Service fee is required"],
   },
@@ -82,11 +61,7 @@ const RoomSchema = new mongoose.Schema({
     trim: true,
   },
   amenites: [String],
-  reviews: {
-    ref: "Reviews",
-    required: true,
-    type: mongoose.Schema.ObjectId,
-  },
+  
   location: {
     type: { type: String },
     coordinates: [],

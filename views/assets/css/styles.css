@@ -202,6 +202,20 @@ select {
 .form-horizontal .text-field {
   margin-right: 1rem;
 }
+.invalid input,
+.invalid select {
+  border-color: #FF5A5F;
+}
+.error-text {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #FF5A5F;
+}
+.required label:after {
+  content: '*';
+  margin-left: 0.2rem;
+  display: inline-flex;
+}
 .btn {
   size: 1.2rem;
   cursor: pointer;

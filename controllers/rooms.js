@@ -12,3 +12,12 @@ export const getRooms = async (req, res) => {
 export const getaRoom = (req, res) => {
   res.status(200).send("This is a route for a single room");
 };
+
+export const createRoom = async (req, res) => {
+  try {
+    const rooms = await Room.create(req.body);
+    res.status(200).json({ rooms });
+  } catch (error) {
+    res.status(500).json(error.message);
+  }
+};
