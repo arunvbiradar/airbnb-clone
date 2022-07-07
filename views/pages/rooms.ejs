@@ -3,15 +3,48 @@
 <div class="row">
     <div class="col">
         <ul class="list">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Title</th>
+                    <th>Address</th>
+                    <th>Location</th>
+                    <th>Price</th>
+                    <th colspan="2"></th>
+                </tr>
             <% rooms.forEach(function(room) { %>
-                <li>
-                    <a href=""><%= room.name %></a>
-                    <form action="rooms/<%= room._id %>" method="post">
-                        <input type="hidden" name="deleteRoom" value="room._id">
-                        <button type="submit" class="btn btn-link btn-primary">Delete</button>
-                    </form>
-                </li>
+                <tr>
+                    <td>
+                        <a href=""><%= room.name %></a>
+                    </td>
+                    <td>
+                        <%= room.title %>
+                    </td>
+                    <td>
+                        <%= room.address %>
+                    </td>
+                    <td>
+                        <%= room.country %>
+                        <%= room.state %>
+                        <%= room.city %>
+                        <%= room.pincode %>
+                    </td>
+                    <td>
+                        <%= room.price %>,
+                        <%= room.serviceFee %>
+                    </td>
+                    <td class="editCol">
+                        <a href="rooms/<%= room._id %>" class="btn btn-link btn-primary">Edit</a>
+                    </td>
+                    <td class="deleteCol">
+                        <form action="rooms/<%= room._id %>" method="post">
+                            <input type="hidden" name="deleteRoom" value="room._id">
+                            <button type="submit" class="btn btn-link btn-primary">Delete</button>
+                        </form>
+                    </td>
+                </tr>
              <% }); %>
+            </table>
         </ul>
     </div>
 </div>

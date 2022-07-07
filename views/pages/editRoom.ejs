@@ -1,18 +1,17 @@
-<%- include('./../partials/header.ejs') %>
-<!-- form --> 
-<form action="create-room" method="post">
+<%- include('./../partials/header.ejs') %> 
+<form action="/dashboard/updateRoom/<%= room._id %>" method="post">
   <h3 class="divider">Room details</h3>
   <div class="row">
     <div class="form-control col required <%= typeof error.message != 'string' && typeof error.message?.errors['name'] != 'undefined' ? "invalid" : ''%>">
       <label for="">Enter room name</label>
-      <input type="text" name="name" id="roomName" class="text-field" placeholder="Enter room name">
+      <input type="text" name="name" id="roomName" class="text-field" placeholder="Enter room name" value="<%= room.name %>">
       <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
         <span class="error-text"><%= error.message.errors['name'] %> </span>
       <% } %> 
     </div>
     <div class="form-control col required <%= typeof error.message != 'string' && typeof error.message?.errors['title'] != 'undefined' ? "invalid" : ''%>">
       <label for="">Enter title</label>
-      <input type="text" name="title" id="roomTitle" class="text-field" placeholder="Enter room title">
+      <input type="text" name="title" id="roomTitle" class="text-field" placeholder="Enter room title" value="<%= room.title %>">
       <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
         <span class="error-text"><%= error.message.errors['title'] %> </span>
       <% } %> 
@@ -30,21 +29,21 @@
       <div class="row">
         <div class="form-control col <%= typeof error.message != 'string' && typeof error.message?.errors['noOfGuests'] != 'undefined' ? "invalid" : ''%>">
           <label for="">No. of guests</label>
-          <input type="text" name="noOfGuests" id="roomNoOfGuest" class="text-field" placeholder="Guests">
+          <input type="text" name="noOfGuests" id="roomNoOfGuest" class="text-field" placeholder="Guests" value="<%= room.noOfGuests %>">
           <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
             <span class="error-text"><%= error.message.errors['noOfGuests'] %> </span>
           <% } %> 
         </div>
         <div class="form-control col <%= typeof error.message != 'string' && typeof error.message?.errors['noOfBedrooms'] != 'undefined' ? "invalid" : ''%>">
           <label for="">No. of bedrooms</label>
-          <input type="text" name="noOfBedrooms" id="roomNoOfBedrooms" class="text-field" placeholder="Bedrooms">
+          <input type="text" name="noOfBedrooms" id="roomNoOfBedrooms" class="text-field" placeholder="Bedrooms" value="<%= room.noOfBedrooms %>">
           <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
             <span class="error-text"><%= error.message.errors['noOfBedrooms'] %> </span>
           <% } %> 
         </div>
         <div class="form-control col <%= typeof error.message != 'string' && typeof error.message?.errors['noOfBathrooms'] != 'undefined' ? "invalid" : ''%>">
           <label for="">No. of bathrooms</label>
-          <input type="text" name="noOfBathrooms" id="roomNoOfBathrooms" class="text-field" placeholder="Bathrooms">
+          <input type="text" name="noOfBathrooms" id="roomNoOfBathrooms" class="text-field" placeholder="Bathrooms" value="<%= room.noOfBathrooms %>">
           <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
             <span class="error-text"><%= error.message.errors['noOfBathrooms'] %> </span>
           <% } %> 
@@ -55,14 +54,14 @@
   <div class="row">
     <div class="form-control col required <%= typeof error.message != 'string' && typeof error.message?.errors['price'] != 'undefined' ? "invalid" : ''%>">
       <label for="">Enter room price/night</label>
-      <input type="text" name="price" id="roomPrice" class="text-field" placeholder="Enter room price/night">
+      <input type="text" name="price" id="roomPrice" class="text-field" placeholder="Enter room price/night" value="<%= room.price %>">
       <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
         <span class="error-text"><%= error.message.errors['price'] %> </span>
       <% } %> 
     </div>
     <div class="form-control col required <%= typeof error.message != 'string' && typeof error.message?.errors['serviceFee'] != 'undefined' ? "invalid" : ''%>">
       <label for="">Enter service fee</label>
-      <input type="text" name="serviceFee" id="serviceFee" class="text-field" placeholder="Enter service fee">
+      <input type="text" name="serviceFee" id="serviceFee" class="text-field" placeholder="Enter service fee" value="<%= room.serviceFee %>">
       <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
         <span class="error-text"><%= error.message.errors['serviceFee'] %> </span>
       <% } %> 
@@ -71,14 +70,14 @@
   <div class="row">
     <div class="form-control col required <%= typeof error.message != 'string' && typeof error.message?.errors['checkIn'] != 'undefined' ? "invalid" : ''%>">
       <label for="">Enter check in</label>
-      <input type="text" name="checkIn" id="checkIn" class="text-field" placeholder="Enter check in">
+      <input type="text" name="checkIn" id="checkIn" class="text-field" placeholder="Enter check in" value="<%= room.checkIn %>">
       <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
         <span class="error-text"><%= error.message.errors['checkIn'] %> </span>
       <% } %> 
     </div>
     <div class="form-control col required <%= typeof error.message != 'string' && typeof error.message?.errors['checkOut'] != 'undefined' ? "invalid" : ''%>">
       <label for="">Enter check out</label>
-      <input type="text" name="checkOut" id="checkOut" class="text-field" placeholder="Enter check out">
+      <input type="text" name="checkOut" id="checkOut" class="text-field" placeholder="Enter check out" value="<%= room.checkOut %>">
       <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
         <span class="error-text"><%= error.message.errors['checkOut'] %> </span>
       <% } %> 
@@ -87,7 +86,7 @@
   <div class="row">
     <div class="form-control col <%= typeof error.message != 'string' && typeof error.message?.errors['description'] != 'undefined' ? "invalid" : ''%>">
       <label for="">Enter description</label>
-      <textarea name="description" id="description" class="text-field" placeholder="Enter description"></textarea>
+      <textarea name="description" id="description" class="text-field" placeholder="Enter description" value="<%= room.description %>"></textarea>
       <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
         <span class="error-text"><%= error.message.errors['description'] %> </span>
       <% } %> 
@@ -114,7 +113,7 @@
       <label for="">&nbsp;</label>
       <div class="checkbox">
         <label for="">
-          <input type="checkbox" name="pets">
+          <input type="checkbox" name="pets" <%= room.pets ? checked="checked" : '' %>>
           Pets allowed
         </label>
       </div>
@@ -124,7 +123,7 @@
   <div class="row">
     <div class="form-control col required <%= typeof error.message != 'string' && typeof error.message?.errors['address'] != 'undefined' ? "invalid" : ''%>">
       <label for="">Enter address</label>
-      <input type="text" name="address" id="address" class="text-field" placeholder="Enter address">
+      <input type="text" name="address" id="address" class="text-field" placeholder="Enter address" value="<%= room.address %>">
       <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
         <span class="error-text"><%= error.message.errors['address'] %> </span>
       <% } %> 
@@ -136,7 +135,7 @@
       <select name="country" id="roomCountry" class="text-field">
         <option value="">Select country</option>
         <% countries.forEach(function(country) { %>
-          <option value="<%= country._id %>"><%= country.name %></option>
+          <option <%= (country === room.country) ? 'selected' : '' %> value="<%= country._id %>"><%= country.name %></option>
         <% }); %>
       </select>
       <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
@@ -148,7 +147,7 @@
       <select name="state" id="roomState" class="text-field">
         <option value="">Select state</option>
         <% states.forEach(function(state) { %>
-          <option value="<%= state._id %>"><%= state.name %></option>
+          <option <%= (state === room.state) ? 'selected' : '' %> value="<%= state._id %>"><%= state.name %></option>
         <% }); %>
       </select>
       <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
@@ -160,7 +159,7 @@
       <select name="city" id="roomCity" class="text-field">
         <option value="">Select city</option>
         <% cities.forEach(function(city) { %>
-          <option value="<%= city._id %>"><%= city.name %></option>
+          <option <%= (city === room.city) ? 'selected' : '' %> value="<%= city._id %>"><%= city.name %></option>
         <% }); %>
       </select>
       <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
@@ -171,7 +170,7 @@
   <div class="row">
     <div class="form-control col required <%= typeof error.message != 'string' && typeof error.message?.errors['pincode'] != 'undefined' ? "invalid" : ''%>">
       <label for="">Enter pincode</label>
-      <input type="text" name="pincode" id="pincode" class="text-field" placeholder="Enter pincode">
+      <input type="text" name="pincode" id="pincode" class="text-field" placeholder="Enter pincode" value="<%= room.pincode %>">
       <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
         <span class="error-text"><%= error.message.errors['pincode'] %> </span>
       <% } %> 
@@ -180,13 +179,13 @@
       <label for="" class="form-label">Enter location</label>
       <div class="row">
         <div class="form-control col <%= typeof error.message != 'string' && typeof error.message?.errors['location'] != 'undefined' ? "invalid" : ''%>">
-          <input type="text" name="roomNoOfGuest" id="roomNoOfGuest" class="text-field" placeholder="Latitude">
+          <input type="text" name="latitude" id="latitude" class="text-field" placeholder="Latitude" value="<%= room.latitude %>">
           <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
             <span class="error-text"><%= error.message.errors['location'] %> </span>
           <% } %> 
         </div>
         <div class="form-control col <%= typeof error.message != 'string' && typeof error.message?.errors['location'] != 'undefined' ? "invalid" : ''%>">
-          <input type="text" name="roomNoOfBedrooms" id="roomNoOfBedrooms" class="text-field" placeholder="Longititude">
+          <input type="text" name="longitude" id="longitude" class="text-field" placeholder="Longitude" value="<%= room.longitude %>">
           <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
             <span class="error-text"><%= error.message.errors['location'] %> </span>
           <% } %> 
@@ -200,13 +199,13 @@
       <label for="" class="form-label">Enter rules</label>
       <div class="row">
         <div class="form-control col <%= typeof error.message != 'string' && typeof error.message?.errors['rules'] != 'undefined' ? "invalid" : ''%>">
-          <input type="text" name="checkInBtw" id="checkInBtw" class="text-field" placeholder="CheckIn between">
+          <input type="text" name="checkInBtw" id="checkInBtw" class="text-field" placeholder="CheckIn between" value="<%= room.checkInBtw %>">
           <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
             <span class="error-text"><%= error.message.errors['rules'] %> </span>
           <% } %> 
         </div>
         <div class="form-control col <%= typeof error.message != 'string' && typeof error.message?.errors['rules'] != 'undefined' ? "invalid" : ''%>">
-          <input type="text" name="suitableFor" id="suitableFor" class="text-field" placeholder="Suiteable for">
+          <input type="text" name="suitableFor" id="suitableFor" class="text-field" placeholder="Suiteable for" value="<%= room.suitableFor %>">
           <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
             <span class="error-text"><%= error.message.errors['rules'] %> </span>
           <% } %> 
@@ -219,13 +218,13 @@
       <label for="" class="form-label">Enter additional rules</label>
       <div class="row">
         <div class="form-control col required <%= typeof error.message != 'string' && typeof error.message?.errors['rules'] != 'undefined' ? "invalid" : ''%>">
-          <input type="text" name="rule1" id="rule1" class="text-field" placeholder="Rule 1">
+          <input type="text" name="rule1" id="rule1" class="text-field" placeholder="Rule 1" value="<%= room.rule1 %>">
           <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
             <span class="error-text"><%= error.message.errors['rules'] %> </span>
           <% } %> 
         </div>
         <div class="form-control col required <%= typeof error.message != 'string' && typeof error.message?.errors['rules'] != 'undefined' ? "invalid" : ''%>">
-          <input type="text" name="rule2" id="rule2" class="text-field" placeholder="Rule 2">
+          <input type="text" name="rule2" id="rule2" class="text-field" placeholder="Rule 2" value="<%= room.rule2 %>">
           <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
             <span class="error-text"><%= error.message.errors['rules'] %> </span>
           <% } %> 
@@ -237,13 +236,13 @@
     <div class="col">
       <div class="row">
         <div class="form-control col required <%= typeof error.message != 'string' && typeof error.message?.errors['rules'] != 'undefined' ? "invalid" : ''%>">
-          <input type="text" name="rule3" id="rule3" class="text-field" placeholder="Rule 3">
+          <input type="text" name="rule3" id="rule3" class="text-field" placeholder="Rule 3" value="<%= room.rule3 %>">
           <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
             <span class="error-text"><%= error.message.errors['rules'] %> </span>
           <% } %> 
         </div>
         <div class="form-control col required <%= typeof error.message != 'string' && typeof error.message?.errors['rules'] != 'undefined' ? "invalid" : ''%>">
-          <input type="text" name="rule4" id="rule4" class="text-field" placeholder="Rule 4">
+          <input type="text" name="rule4" id="rule4" class="text-field" placeholder="Rule 4" value="<%= room.rule4 %>">
           <% if(typeof error.message != 'undefined' && typeof error.message !== 'string') {%> 
             <span class="error-text"><%= error.message.errors['rules'] %> </span>
           <% } %> 
@@ -256,7 +255,7 @@
       <div class="form-control <%= typeof error.message != 'string' && typeof error.message?.errors['rules'] != 'undefined' ? "invalid" : ''%>">
         <div class="checkbox">
           <label for="" class="form-label">
-            <input type="checkbox" name="smoking" id="smoking"> Smoking
+            <input type="checkbox" name="smoking" id="smoking" <%= room.smoking ? checked="checked" : '' %>> Smoking
           </label>
         </div>
       </div>
@@ -265,15 +264,14 @@
       <div class="form-control <%= typeof error.message != 'string' && typeof error.message?.errors['rules'] != 'undefined' ? "invalid" : ''%>">
         <div class="checkbox">
           <label for="" class="form-label">
-            <input type="checkbox" name="pets" id="pets"> Pets
+            <input type="checkbox" name="pets" id="pets" <%= room.pets ? checked="checked" : '' %>> Pets
           </label>
         </div>
       </div>
     </div>
   </div>
   <div class="form-control align-content-right">
-    <button class="btn btn-primary">Create Room</button>
+    <button class="btn btn-primary">Update Room</button>
   </div>
 </form>
-
 <%- include('./../partials/footer.ejs') %>

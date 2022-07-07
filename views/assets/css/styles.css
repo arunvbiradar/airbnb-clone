@@ -387,6 +387,32 @@ header nav li {
   border-color: #00A699;
   background-color: #00A699;
 }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #dcdcdc;
+}
+th,
+td {
+  padding: 0.5rem;
+  text-align: left;
+}
+th + th,
+td + th,
+th + td,
+td + td {
+  border-left: 1px solid #dcdcdc;
+}
+tr + tr td,
+tr + tr th {
+  border-top: 1px solid #dcdcdc;
+}
+.deleteCol,
+.editCol {
+  max-width: 55px;
+  padding: 0.2rem 0;
+  text-align: center;
+}
 @font-face {
   font-family: 'cereal';
   src: url('../../fonts/cereal/cereal-light.eot');

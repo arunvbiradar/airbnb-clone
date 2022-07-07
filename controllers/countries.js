@@ -11,8 +11,8 @@ export const getCountires = async (req, res) => {
         pageTitle: "Countries",
         breadCrumb: "Countries",
         countries,
-        cities,
         states,
+        cities,
         error: {}
     });
   } catch (error) {
