@@ -1,7 +1,7 @@
 import express from "express";
 import "dotenv/config";
 import { db } from "./db/db.js";
-import { rooms, view } from "./routes/index.js";
+import { apis, view } from "./routes/index.js";
 import bodyParser from "body-parser";
 
 // App config
@@ -16,7 +16,7 @@ app.set("view engine", "ejs");
 // DB Config
 
 // API endpoint
-app.use("/api/v1/rooms", rooms);
+app.use("/api/v1/", apis);
 app.use("/dashboard", view);
 
 // Listener

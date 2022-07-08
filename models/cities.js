@@ -5,13 +5,8 @@ const CitiesSchema = new mongoose.Schema({
       trim: true,
       type: String,
       required: [true, "Name is required"],
+      unique : [true, "City already exist in database"],
       maxlength: [100, "Name can not be more than 100 characters"],
-    },
-    icon: {
-      trim: true,
-      type: [String],
-      default: "/uploads/default.jpg",
-      required: [true, "This is required"]
     },
     country: {
       ref: "Country",
@@ -23,6 +18,12 @@ const CitiesSchema = new mongoose.Schema({
       required: true,
       type: mongoose.Schema.ObjectId,
     },
+    icon: {
+      trim: true,
+      type: String,
+      default: "/uploads/default.jpg",
+      required: [true, "This is required"]
+    }
 });
 
 export default mongoose.model("Cities", CitiesSchema);

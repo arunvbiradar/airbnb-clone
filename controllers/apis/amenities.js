@@ -1,4 +1,4 @@
-import Amenities from "./../models/amenities.js";
+import Amenities from "./../../models/amenities.js";
 
 export const getAmenities = async (req, res) => {
   try {

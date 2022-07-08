@@ -29,23 +29,9 @@ export const getCreateRoom = async (req, res) => {
 export const createRoom = async (req, res) => {
     try {
       await Rooms.create(req.body);
-      res.render("./pages/createRoom", {
-          pageTitle: "Create Room",
-          breadCrumb: "Create Room",
-          error: {
-              status: false,
-              message: "Room created"
-          }
-      });
+      res.redirect('/dashboard/create-room');
     } catch (error) {
-        res.render("./pages/createRoom", {
-            pageTitle: "Create Room",
-            breadCrumb: "Create Room",
-            error: {
-                status: true,
-                message: error
-            }
-        });
+        res.status(500).json({ status: false, error: error.message });
     }
 };
 
@@ -81,8 +67,7 @@ export const getEditRoom = async (req, res) => {
 export const updateRoom = async (req, res) => {
     console.log(req.params.id);
     try {
-      const room = await Rooms.findByIdAndUpdate(req.params.id, req.body);
-      console.log(room);
+      await Rooms.findByIdAndUpdate(req.params.id, req.body);
       res.redirect('/dashboard/rooms');
     } catch (error) {
         res.status(500).json({ status: false, error: error.message });
