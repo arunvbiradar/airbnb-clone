@@ -3,14 +3,14 @@ const router = express.Router();
 
 import { getRooms, getaRoom, createRoom, updateRoom, deleteRoom } from "./../../controllers/apis/rooms.js";
 import { getCountires, createCountry, updateCountry, deleteCountry, getCities, createCity, updateCity, deleteCity, getStates, createState, updateState, deleteState } from "./../../controllers/apis/countries.js";
-import { getAmenities, createAmenity, deleteAmenity } from "./../../controllers/apis/amenities.js";
+import { getAmenities, createAmenity, deleteAmenity, updateAmenity } from "./../../controllers/apis/amenities.js";
 
 router.route("/rooms").get(getRooms).post(createRoom);
 router.route("/rooms/:id").get(getaRoom).put(updateRoom).delete(deleteRoom);
 
 // amenities
 router.route('/amenities').get(getAmenities).post(createAmenity);
-router.route('/amenities/:id').post(deleteAmenity);
+router.route('/amenities/:id').put(updateAmenity).delete(deleteAmenity);
 
 // Counties, States & Cities
 router.route('/countries').get(getCountires).post(createCountry);
